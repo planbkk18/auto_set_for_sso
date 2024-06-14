@@ -313,6 +313,7 @@ echo deployment.javaws.jre.0.location=http\://java.sun.com/products/autodl/j2se>
 echo deployment.javaws.jre.0.enabled=true>> %userprofile%\appdata\locallow\sun\java\deployment\deployment.properties
 echo deployment.javaws.jre.0.args=>> %userprofile%\appdata\locallow\sun\java\deployment\deployment.properties
 
+timeout /t 1
 start C:\ProgramData\Microsoft\Windows\"Start Menu"\Programs\Java\"Configure Java".lnk"
 timeout /t 3
 taskkill /im javaw.exe /F
