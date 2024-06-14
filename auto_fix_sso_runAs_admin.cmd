@@ -1,16 +1,15 @@
 @Echo Off
 
-
+REM ; check ‡∏ß‡πà‡∏≤ run As admin ‡∏´‡∏£‡∏∑‡∏≠‡πÑ‡∏°‡πà 
 cd %systemroot%\system32
 call :IsAdmin
 
-REM ; ª‘¥ browser
+REM ; ‡∏õ‡∏¥‡∏î browser ‡∏ó‡∏µ‡πà run ‡∏≠‡∏¢‡∏π‡πà‡∏Å‡πà‡∏≠‡∏ô
 taskkill.exe /F /IM iexplore.exe /T
 taskkill.exe /F /IM msedge.exe /T
-taskkill.exe /F /IM jinetslssign.exe /T
 
 
-REM ; µ—Èß Advance
+REM ; ‡∏ï‡∏±‡πâ‡∏á‡∏Ñ‡πà‡∏≤‡πÉ‡∏ô Advance
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v "CertificateRevocation" /t REG_DWORD /d "0" /f
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v "WarnonBadCertRecving" /t REG_DWORD /d "0" /f
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v "SecureProtocols" /t REG_DWORD /d "10912" /f
@@ -19,16 +18,16 @@ Reg.exe add "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATU
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_LOCALMACHINE_LOCKDOWN\Settings" /v "LOCALMACHINE_CD_UNLOCK" /t REG_DWORD /d "1" /f
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Internet Explorer\Download" /v "CheckExeSignatures" /t REG_SZ /d "yes" /f
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Internet Explorer\Download" /v "RunInvalidSignatures" /t REG_DWORD /d "1" /f
-REM ; ‡Õ“µ‘Í°∂Ÿ°ÕÕ°®“°„π§Õ¡·æ∑
+REM ; ‡πÄ‡∏≠‡∏≤‡∏ï‡∏¥‡πä‡∏Å‡∏ñ‡∏π‡∏Å‡∏≠‡∏≠‡∏Å‡∏à‡∏≤‡∏Å compatibiliy list
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\BrowserEmulation" /v "IntranetCompatibilityMode" /t REG_DWORD /d "0" /f
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\BrowserEmulation" /v "MSCompatibilityMode" /t REG_DWORD /d "0" /f
 
 REM ;-----------------------------------------------------------------------------
-REM ; ª‘¥ popup blocker „π tab pivacy
+REM ; ‡∏õ‡∏¥‡∏î popup blocker ‡πÉ‡∏ô tab pivacy
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Internet Explorer\New Windows" /v "PopupMgr" /t REG_DWORD /d "0" /f
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Internet Explorer\New Windows\Allow" /v "*.rd.go.th" /t REG_BINARY /d "0000" /f
 REM ;-----------------------------------------------------------------------------
-REM ;°“√µ—Èß§Ë“„π trusted sites
+REM ; ‡∏Å‡∏≤‡∏£‡∏ï‡∏±‡πâ‡∏á‡∏Ñ‡πà‡∏≤‡πÉ‡∏ô trusted sites
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2" /v "2001" /t REG_DWORD /d "0" /f
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2" /v "2004" /t REG_DWORD /d "0" /f
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2" /ve /t REG_SZ /d "" /f
@@ -143,16 +142,16 @@ Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 
 
 REM ;-----------------------------------------------------------------------------
-REM ;„ Ë complatibility list ‡ªÁπ rd.go.th ·≈–  “√∫—≠Õ‘‡≈Á°∑√Õπ‘° Ï ·≈– SSO WFH ·≈– ¿æ72.1
+REM ;‡πÉ‡∏™‡πà complatibility list ‡πÄ‡∏õ‡πá‡∏ô rd.go.th ‡πÅ‡∏•‡∏∞ ‡∏™‡∏≤‡∏£‡∏ö‡∏±‡∏ç‡∏≠‡∏¥‡πÄ‡∏•‡πá‡∏Å‡∏ó‡∏£‡∏≠‡∏ô‡∏¥‡∏Å‡∏™‡πå ‡πÅ‡∏•‡∏∞ SSO WFH ‡πÅ‡∏•‡∏∞ ‡∏†‡∏û72.1
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Internet Explorer\BrowserEmulation" /v "LocalMachineCompatibilityMode" /t REG_DWORD /d "0" /f
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\BrowserEmulation\ClearableListData" /v "UserFilter" /t REG_BINARY /d "411f00005308adba04000000a600000001000000040000000c00000057314d4048d4d201010000000b00310030002e00320030002e00310032002e00310037000c000000be46c2594811d601010000000b00310030002e00320030002e00320039002e00310032000c00000084daa27890dbd701010000000b00310030002e00320030002e00310032002e00340031000c000000dea25b5514ddd701010000000800720064002e0067006f002e0074006800" /f
 REM ;-----------------------------------------------------------------------------
-REM ; ∑”ÀπÈ“‚Œ¡‡ªÁπ rdsrv.rd.go.th
+REM ; ‡∏ó‡∏≥‡∏´‡∏ô‡πâ‡∏≤‡πÇ‡∏Æ‡∏°‡πÄ‡∏õ‡πá‡∏ô rdsrv.rd.go.th (ie11 windows7)
 Reg.exe add "HKLM\SOFTWARE\Microsoft\Internet Explorer\MAIN" /v "Default_Page_URL" /t REG_SZ /d "https://rdsrv.rd.go.th" /f
 Reg.exe add "HKLM\SOFTWARE\Microsoft\Internet Explorer\MAIN" /v "Start Page" /t REG_SZ /d "https://rdsrv.rd.go.th" /f
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\Main" /v "Start Page" /t REG_SZ /d "https://rdsrv.rd.go.th" /f
 REM ;-----------------------------------------------------------------------------
-REM ;„ Ë Trusted site (√ÿËπ„À¡Ë)
+REM ;‡πÉ‡∏™‡πà Trusted site (‡∏£‡∏∏‡πà‡∏ô‡πÉ‡∏´‡∏°‡πà)
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\rd.go.th\*.itpc.sys" /v "http" /t REG_DWORD /d "2" /f
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\rd.go.th\*.itpp.sys" /v "http" /t REG_DWORD /d "2" /f
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\rd.go.th\*.itpx.sys" /v "http" /t REG_DWORD /d "2" /f
@@ -179,48 +178,47 @@ Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\rd.go.th\whtsys" /v "http" /t REG_DWORD /d "2" /f
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\rd.go.th\wht00722" /v "https" /t REG_DWORD /d "2" /f
 
-REM ; µ—Èß Cache „ÀÈ‡ªÁπ 1024
+REM ; ‡∏ï‡∏±‡πâ‡∏á Cache ‡πÉ‡∏´‡πâ‡πÄ‡∏õ‡πá‡∏ô 1024
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\Cache" /v "ContentLimit" /t REG_DWORD /d "1024" /f
 
-REM ;‡æ‘Ë¡ Environment
+REM ;‡πÄ‡∏û‡∏¥‡πà‡∏° Environment
 Reg.exe add "HKCU\Environment" /v "AMI_HOST" /t REG_SZ /d "10.20.19.131" /f
 Reg.exe add "HKCU\Environment" /v "AMI_SERVICE" /t REG_SZ /d "20000" /f
 
 
-REM ; ie11 ª‘¥ welcome µÕπ‡√‘Ë¡ °—∫ show ‡¡πŸµ≈Õ¥‡«≈“
+REM ; ie11 ‡∏õ‡∏¥‡∏î welcome ‡∏ï‡∏≠‡∏ô‡πÄ‡∏£‡∏¥‡πà‡∏° ‡∏Å‡∏±‡∏ö show ‡πÄ‡∏°‡∏ô‡∏π‡∏ï‡∏•‡∏≠‡∏î‡πÄ‡∏ß‡∏•‡∏≤
 Reg.exe add "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /v "AlwaysShowMenus" /t REG_DWORD /d "1" /f
 Reg.exe add "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /v "DisableFirstRunCustomize" /t REG_DWORD /d "1" /f
 
 REM ;-----------------------------------------------------------------------------
-REM ; ª‘¥ peep desktop
+REM ; ‡∏õ‡∏¥‡∏î peep desktop
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "DisablePreviewDesktop" /t REG_DWORD /d "1" /f
 REM ;-----------------------------------------------------------------------------
-REM ; µ—Èßµ—«ÀπÕπ ‡ªÁπ‡ª≈’Ë¬π¿“…“
+REM ; ‡∏ï‡∏±‡πâ‡∏á‡∏ï‡∏±‡∏ß‡∏´‡∏ô‡∏≠‡∏ô ‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡∏†‡∏≤‡∏©‡∏≤
 Reg.exe add "HKCU\Keyboard Layout\Toggle" /v "Language Hotkey" /t REG_SZ /d "4" /f
 Reg.exe add "HKCU\Keyboard Layout\Toggle" /v "Hotkey" /t REG_SZ /d "4" /f
 Reg.exe add "HKCU\Keyboard Layout\Toggle" /v "Layout Hotkey" /t REG_SZ /d "2" /f
 REM ;-----------------------------------------------------------------------------
-REM ; · ¥ßπ“¡ °ÿ≈¢Õß‰ø≈Ï
+REM ; ‡πÅ‡∏™‡∏î‡∏á‡∏ô‡∏≤‡∏°‡∏™‡∏Å‡∏∏‡∏•‡∏Ç‡∏≠‡∏á‡πÑ‡∏ü‡∏•‡πå
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d "0" /f
 REM ;-----------------------------------------------------------------------------
-REM ; ªÈÕß°—πøÈÕß ActiveX À¡¥Õ“¬ÿ
+REM ; ‡∏õ‡πâ‡∏≠‡∏á‡∏Å‡∏±‡∏ô‡∏ü‡πâ‡∏≠‡∏á ActiveX ‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Ext\Domain" /v "rd.go.th" /t REG_SZ /d "" /f
 REM ;-----------------------------------------------------------------------------
-REM ; ‰¡Ë„ÀÈ Java run update
-REM ; ≈∫ µ—« update ‰¡Ë„ÀÈ run (‰¡Ë‰¥Èº≈)
+REM ; ‡πÑ‡∏°‡πà‡πÉ‡∏´‡πâ Java run update
 Reg.exe delete "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run" /v "SunJavaUpdateSched" /f
 REM ;-----------------------------------------------------------------------------
-REM ; ≈∫µ—« notify ‰¡Ë„ÀÈ· ¥ß (‰¡Ë‰¥Èº≈)
+REM ; ‡∏•‡∏ö‡∏ï‡∏±‡∏ß notify ‡πÑ‡∏°‡πà‡πÉ‡∏´‡πâ‡πÅ‡∏™‡∏î‡∏á
 Reg.exe add "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run" /f
 Reg.exe add "HKLM\SOFTWARE\Wow6432Node\JavaSoft\Java Update\Policy\jucheck" /v "NotifyDownload" /t REG_DWORD /d "0" /f
 Reg.exe add "HKLM\SOFTWARE\Wow6432Node\JavaSoft\Java Update\Policy\jucheck" /v "NotifyInstall" /t REG_DWORD /d "0" /f
 Reg.exe add "HKLM\SOFTWARE\Wow6432Node\JavaSoft\Java Update\Policy\jucheck" /v "EnableJavaUpdate" /t REG_DWORD /d "0" /f
 REM ;-----------------------------------------------------------------------------
-REM ; ‰¡Ë„ÀÈ‚™«Ï java security warning ‡≈¬ (‰¡Ë‰¥Èº≈)
+REM ; ‡πÑ‡∏°‡πà‡πÉ‡∏´‡πâ‡πÇ‡∏ä‡∏ß‡πå java security warning ‡πÄ‡∏•‡∏¢ (‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏ú‡∏•)
 Reg.exe add "HKLM\SOFTWARE\Wow6432Node\JavaSoft\Java Update\Policy" /v "EnableJavaUpdate" /t REG_DWORD /d "0" /f
 Reg.exe add "HKLM\SOFTWARE\Wow6432Node\JavaSoft\Java Update\Policy" /v "EnableAutoUpdateCheck" /t REG_DWORD /d "0" /f
 REM ;-----------------------------------------------------------------------------
-REM ; µ—Èß page setup ¢Õß internet explorer „ÀÈ°«È“ß¢÷Èπ ·≈–‰¡Ë¡’ header footer
+REM ; ‡∏ï‡∏±‡πâ‡∏á page setup ‡∏Ç‡∏≠‡∏á internet explorer ‡πÉ‡∏´‡πâ‡∏Å‡∏ß‡πâ‡∏≤‡∏á‡∏Ç‡∏∂‡πâ‡∏ô ‡πÅ‡∏•‡∏∞‡πÑ‡∏°‡πà‡∏°‡∏µ header footer
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\PageSetup" /v "header" /t REG_SZ /d "" /f
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\PageSetup" /v "footer" /t REG_SZ /d "" /f
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\PageSetup" /v "margin_bottom" /t REG_SZ /d "0.229920" /f
@@ -231,36 +229,37 @@ Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\PageSetup" /v "Print_Back
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\PageSetup" /v "Shrink_To_Fit" /t REG_SZ /d "yes" /f
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\PageSetup" /v "font" /t REG_SZ /d "font-family: Tahoma; font-size: 7pt; color: rgb(0,0,0);" /f
 REM ;-----------------------------------------------------------------------------
-REM ; ‡ª≈’Ë¬π Search engine ‡ªÁπ google
+REM ; ‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô Search engine ‡πÄ‡∏õ‡πá‡∏ô google (ie11)
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{0633EE93-D776-472f-A0FF-E1416B8B2E3A}" /v "DisplayName" /t REG_SZ /d "Google" /f
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{0633EE93-D776-472f-A0FF-E1416B8B2E3A}" /v "FaviconURL" /t REG_SZ /d "http://www.google.com/favicon.ico" /f
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{0633EE93-D776-472f-A0FF-E1416B8B2E3A}" /v "TopResultURL" /t REG_SZ /d "http://www.google.com/search?q={searchTerms}&src=IE-TopResult&FORM=IETR02&pc=UE10" /f
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{0633EE93-D776-472f-A0FF-E1416B8B2E3A}" /v "URL" /t REG_SZ /d "http://www.google.com/search?q={searchTerms}" /f
 Reg.exe add "HKCU\Software\Microsoft\Internet Explorer\SearchScopes\{0633EE93-D776-472f-A0FF-E1416B8B2E3A}" /v "SuggestionsURL" /t REG_SZ /d "http://clients5.google.com/complete/search?q={searchTerms}&client=ie8&mw={ie:maxWidth}&sh={ie:sectionHeight}&rh={ie:rowHeight}&inputencoding={inputEncoding}&outputencoding={outputEncoding}" /f
 
-REM ; ·°È  øÕπÏ „π Notepad 
+REM ; ‡πÅ‡∏Å‡πâ ‡∏Ç‡∏ô‡∏≤‡∏î font ‡πÉ‡∏ô Notepad 
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Notepad" /v "lfFaceName" /t REG_SZ /d "Tahoma" /f
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Notepad" /v "iPointSize" /t REG_DWORD /d "120" /f
 
-rem ; µ—Èß powercfg „ÀÈ high performance
+rem ; ‡∏ï‡∏±‡πâ‡∏á powercfg ‡πÉ‡∏´‡πâ high performance (windows10 11)
 powercfg /s SCHEME_MIN
 powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 powercfg /SETDCVALUEINDEX SCHEME_CURRENT SUB_NONE CONSOLELOCK 0
 powercfg /SETACVALUEINDEX SCHEME_CURRENT SUB_NONE CONSOLELOCK 0
 
-rem ; „ÀÈ ‘∑∏‘‡¢’¬π‰ø≈Ï°—∫ ‚ª√·°√¡ÕË“π∫—µ√ª√–™“™π
+rem ; ‡πÉ‡∏´‡πâ‡∏™‡∏¥‡∏ó‡∏ò‡∏¥‡πÄ‡∏Ç‡∏µ‡∏¢‡∏ô‡πÑ‡∏ü‡∏•‡πå‡∏Å‡∏±‡∏ö ‡πÇ‡∏õ‡∏£‡πÅ‡∏Å‡∏£‡∏°‡∏≠‡πà‡∏≤‡∏ô‡∏ö‡∏±‡∏ï‡∏£‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô
 
 icacls "C:\Program Files (x86)\RD_Apps" /grant administrators:F
 icacls "C:\Program Files (x86)\RD_Apps" /grant users:M
 
 icacls "C:\Program Files (x86)\RD_Apps" /grant erevenue:(OI)(CI)F
 icacls "C:\Users\erevenue\AppData\Local\Temp" /grant erevenue:(OI)(CI)F
-rem ; „ÀÈ ‘∑∏‘‡¢’¬π‰ø≈Ï„π temp (·°È 5201)
+
+rem ; ‡πÉ‡∏´‡πâ‡∏™‡∏¥‡∏ó‡∏ò‡∏¥‡πÄ‡∏Ç‡∏µ‡∏¢‡∏ô‡πÑ‡∏ü‡∏•‡πå‡πÉ‡∏ô temp (‡πÅ‡∏Å‡πâ 5201 error)
 icacls "C:\Windows\Temp" /grant Everyone:(OI)(CI)F
 
 
 REM ;-----------------------------------------------------------------------------
-REM ; µ—Èß§Ë“ JAVA exception.sites (‡¢’¬π‰ø≈Ï„À¡Ë∑—Èß‰ø≈Ï)
+REM ; ‡∏ï‡∏±‡πâ‡∏á‡∏Ñ‡πà‡∏≤ JAVA exception.sites (‡πÄ‡∏Ç‡∏µ‡∏¢‡∏ô‡πÑ‡∏ü‡∏•‡πå‡πÉ‡∏´‡∏°‡πà‡∏ó‡∏±‡πâ‡∏á‡πÑ‡∏ü‡∏•‡πå)
 @echo off
 
 echo http://10.20.1.95> %userprofile%\appdata\LocalLow\Sun\Java\Deployment\security\exception.sites
@@ -289,7 +288,7 @@ echo https://bpm-c-itpx-sys.rd.go.th>> %userprofile%\appdata\LocalLow\Sun\Java\D
 echo https://rpt-c-itpx-sys.rd.go.th>> %userprofile%\appdata\LocalLow\Sun\Java\Deployment\security\exception.sites
 
 REM ;-----------------------------------------------------------------------------
-REM ; ‡¢’¬π deployment.properties „À¡Ë ∑—Èß‰ø≈Ï ·≈È«‡√’¬° config java ‡æ◊ËÕ update 1 ∑’
+REM ; ‡πÄ‡∏Ç‡∏µ‡∏¢‡∏ô deployment.properties ‡πÉ‡∏´‡∏°‡πà ‡∏ó‡∏±‡πâ‡∏á‡πÑ‡∏ü‡∏•‡πå ‡πÅ‡∏•‡πâ‡∏ß‡πÄ‡∏£‡∏µ‡∏¢‡∏Å config java ‡πÄ‡∏û‡∏∑‡πà‡∏≠ update 1 ‡∏ó‡∏µ
 
 echo deployment.security.clientauth.keystore.auto=false> %userprofile%\appdata\locallow\sun\java\deployment\deployment.properties
 echo deployment.security.revocation.check=NO_CHECK>> %userprofile%\appdata\locallow\sun\java\deployment\deployment.properties
@@ -325,9 +324,9 @@ Exit
 Reg.exe query "HKU\S-1-5-19\Environment"
 If Not %ERRORLEVEL% EQU 0 (
  Cls & Echo You must have administrator rights to continue ... 
- msg %username% Script ‰¡Ë run π–§√—∫ ‡Õ“„À¡Ë Õ¬Ë“¥—∫‡∫‘È≈§≈‘Í°§√—∫  µÈÕß Click ¢«“ ·≈È«‡≈◊Õ° Run as administrator
+ msg %username% Script ‡πÑ‡∏°‡πà run ‡∏ô‡∏∞‡∏Ñ‡∏£‡∏±‡∏ö ‡πÄ‡∏≠‡∏≤‡πÉ‡∏´‡∏°‡πà ‡∏≠‡∏¢‡πà‡∏≤‡∏î‡∏±‡∏ö‡πÄ‡∏ö‡∏¥‡πâ‡∏•‡∏Ñ‡∏•‡∏¥‡πä‡∏Å‡∏Ñ‡∏£‡∏±‡∏ö  ‡∏ï‡πâ‡∏≠‡∏á Click ‡∏Ç‡∏ß‡∏≤ ‡πÅ‡∏•‡πâ‡∏ß‡πÄ‡∏•‡∏∑‡∏≠‡∏Å Run as administrator
  Pause & Exit
 )
 Cls
 goto:eof
-REM ;--------------------®∫‰ø≈Ï---------------------------------------------------------
+REM ;--------------------‡∏à‡∏ö‡πÑ‡∏ü‡∏•‡πå---------------------------------------------------------
