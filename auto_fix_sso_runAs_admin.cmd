@@ -324,7 +324,7 @@ Exit
 Reg.exe query "HKU\S-1-5-19\Environment"
 If Not %ERRORLEVEL% EQU 0 (
  Cls & Echo You must have administrator rights to continue ... 
- msg %username% Script ไม่ run นะครับ เอาใหม่ อย่าดับเบิ้ลคลิ๊กครับ  ต้อง Click ขวา แล้วเลือก Run as administrator
+ msg %username% Please Right Click and Run as administrator
  Pause & Exit
 )
 Cls
